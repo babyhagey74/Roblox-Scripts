@@ -1,4 +1,4 @@
-local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/' --old lib got deleted, ill give this a shot.
+local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
@@ -13,11 +13,11 @@ local Window = Library:CreateWindow({
 })
 
 local Tabs = {
-    Chapter1 = Window:AddTab('Chapter 1'),
-    Chapter2 = Window:AddTab('Chapter 2'),
+    Chapter1 = Window:AddTab('C1'),
+    Chapter2 = Window:AddTab('C2'),
     TouchInterest = Window:AddTab('Touch Interest (WIP)'),
-    Settings = Window:AddTab('UI Settings'),
-    Credits = Window:AddTab('Credits'),
+    Settings = Window:AddTab('UI'),
+    Credits = Window:AddTab('Help'),
 }
 
 local LeftGroupBox0 = Tabs.Settings:AddLeftGroupbox('UI Settings')
@@ -638,7 +638,7 @@ local MyButton = RightGroupBox7:AddButton({
 })
 
 
--- new update, go to discord if it doesnt work
+-- update not finished, any issues go into our discord server in the credits tab, chapter 2 coming soon!
 
 local Box1 = Tabs.TouchInterest:AddRightGroupbox('Chapter 1')
 
