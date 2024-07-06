@@ -5,7 +5,7 @@ local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
 local Window = Library:CreateWindow({
-    Title = 'Rainbow Friends Hub V2',
+    Title = 'Rainbow Friends Hub V2.1',
     Center = true,
     AutoShow = true,
     TabPadding = 8,
@@ -15,6 +15,7 @@ local Window = Library:CreateWindow({
 local Tabs = {
     Chapter1 = Window:AddTab('Chapter 1'),
     Chapter2 = Window:AddTab('Chapter 2'),
+    TouchInterest = Window:AddTab('Touch Interest (WIP)')
     Settings = Window:AddTab('UI Settings'),
     Credits = Window:AddTab('Credits'),
 }
@@ -561,33 +562,21 @@ LeftGroupBox10:AddToggle('Highlight Orange', {
 local RightGroupBox5 = Tabs.Chapter1:AddRightGroupbox('ESP | Night 1 - Items');
 
 local MyButton = RightGroupBox5:AddButton({
-    Text = 'Highlight Blocks',
+    Text = 'Highlight Blocks', --block 1-24
     Func = function()
         local hl = Instance.new("Highlight")
-        hl:Clone().Parent = game.workspace.Block1
-        hl:Clone().Parent = game.workspace.Block2
-        hl:Clone().Parent = game.workspace.Block3
-        hl:Clone().Parent = game.workspace.Block4
-        hl:Clone().Parent = game.workspace.Block5
-        hl:Clone().Parent = game.workspace.Block6
-        hl:Clone().Parent = game.workspace.Block7
-        hl:Clone().Parent = game.workspace.Block8
-        hl:Clone().Parent = game.workspace.Block9
-        hl:Clone().Parent = game.workspace.Block10
-        hl:Clone().Parent = game.workspace.Block11
-        hl:Clone().Parent = game.workspace.Block12
-        hl:Clone().Parent = game.workspace.Block13
-        hl:Clone().Parent = game.workspace.Block14
-        hl:Clone().Parent = game.workspace.Block15
-        hl:Clone().Parent = game.workspace.Block16
-        hl:Clone().Parent = game.workspace.Block17
-        hl:Clone().Parent = game.workspace.Block18
-        hl:Clone().Parent = game.workspace.Block19
-        hl:Clone().Parent = game.workspace.Block20
-        hl:Clone().Parent = game.workspace.Block21
-        hl:Clone().Parent = game.workspace.Block22
-        hl:Clone().Parent = game.workspace.Block23
-        hl:Clone().Parent = game.workspace.Block24
+        for i, v in pairs(game.Workspace:GetChildren()) do
+            local match = string.match(v.Name, "^Block(%d+)$")
+            if match then
+                local number = tonumber(match)
+                if number and number >= 1 and number <= 24 then
+                    -- Highlight the object if its name matches "Block1" to "Block24"
+                    local highlightClone = hl:Clone()
+                    highlightClone.Parent = v
+                    print("Highlighted: " .. v.Name)  -- Print the name for confirmation
+                end
+            end
+        end               
     end,
     DoubleClick = false,
     Tooltip = 'Highlights blocks.'
@@ -599,11 +588,12 @@ local MyButton = RightGroupBox5:AddButton({
     Text = 'Highlight Food Bags', --food green, orange and pink
     Func = function()
         local hl = Instance.new("Highlight")
-        for i,v in pairs(game.Workspace:GetChildren()) do
-            if v.Name == "FoodGreen" or "FoodOrange" or "FoodPink" then
-                hl:Clone().Parent = v
+        for i, v in pairs(game.Workspace:GetChildren()) do
+            if v.Name == "FoodGreen" or v.Name == "FoodOrange" or v.Name == "FoodPink" then
+                local newHl = hl:Clone()
+                newHl.Parent = v
             end
-        end
+        end        
     end,
     DoubleClick = false,
     Tooltip = 'Highlights food bags.'
@@ -612,23 +602,20 @@ local MyButton = RightGroupBox5:AddButton({
 local RightGroupBox6 = Tabs.Chapter1:AddRightGroupbox('ESP | Night 3 - Items');
 
 local MyButton = RightGroupBox6:AddButton({
-    Text = 'Highlight Fuses',
+    Text = 'Highlight Fuses', -- fuse 1-14
     Func = function()
         local hl = Instance.new("Highlight")
-        hl:Clone().Parent = game.workspace.Fuse1
-        hl:Clone().Parent = game.workspace.Fuse2
-        hl:Clone().Parent = game.workspace.Fuse3
-        hl:Clone().Parent = game.workspace.Fuse4
-        hl:Clone().Parent = game.workspace.Fuse5
-        hl:Clone().Parent = game.workspace.Fuse6
-        hl:Clone().Parent = game.workspace.Fuse7
-        hl:Clone().Parent = game.workspace.Fuse8
-        hl:Clone().Parent = game.workspace.Fuse9
-        hl:Clone().Parent = game.workspace.Fuse10
-        hl:Clone().Parent = game.workspace.Fuse11
-        hl:Clone().Parent = game.workspace.Fuse12
-        hl:Clone().Parent = game.workspace.Fuse13
-        hl:Clone().Parent = game.workspace.Fuse14
+        for i, v in pairs(game.Workspace:GetChildren()) do
+            local match = string.match(v.Name, "^Fuse(%d+)$")
+            if match then
+                local number = tonumber(match)
+                if number and number >= 1 and number <= 14 then
+                    local highlightClone = hl:Clone()
+                    highlightClone.Parent = v
+                    print("Highlighted: " .. v.Name)
+                end
+            end
+        end        
     end,
     DoubleClick = false,
     Tooltip = 'Highlights fuses.'
@@ -639,6 +626,7 @@ local RightGroupBox7 = Tabs.Chapter1:AddRightGroupbox('ESP | Night 4 - Items');
 local MyButton = RightGroupBox7:AddButton({
     Text = 'Highlight Batteries',
     Func = function()
+        local hl = Instance.new('Highlight')
         for i,v in pairs(game.Workspace:GetChildren()) do
             if v.Name == "Battery" then
                 hl:Clone().Parent = v
@@ -647,4 +635,71 @@ local MyButton = RightGroupBox7:AddButton({
     end,
     DoubleClick = false,
     Tooltip = 'Highlights batteries.'
+})
+
+
+-- update not finished, any issues go into our discord server in the credits tab, chapter 2 coming soon!
+
+local Box1 = Tabs.TouchInterest:AddRightGroupbox('Chapter 1')
+
+local MyButton = Box1:AddButton({
+    Text = 'Get Blocks',
+    Func = function()
+        for i, v in pairs(game.Workspace:GetChildren()) do
+            local match = string.match(v.Name, "^Block(%d+)$")
+            if match then
+                local number = tonumber(match)
+                if number and number >= 1 and number <= 24 then
+                    firetouchinterest(v.TouchTrigger.TouchInterest)
+                    wait(0.5)
+                end
+            end
+        end 
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gets all the blocks from touch interest.'
+})
+
+local MyButton = Box1:AddButton({
+    Text = 'Get Food Bags',
+    Func = function()
+        for i, v in pairs(game.Workspace:GetChildren()) do
+            if v.Name == "FoodGreen" or v.Name == "FoodOrange" or v.Name == "FoodPink" then
+                firetouchinterest(v.TouchTrigger.TouchInterest)
+                wait(0.5)
+            end
+        end
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gets all the food bags from touch interest.'
+})
+
+local MyButton = Box1:AddButton({
+    Text = 'Get Fuses',
+    Func = function()
+        for i, v in pairs(game.Workspace:GetChildren()) do
+            local match = string.match(v.Name, "^Fuse(%d+)$")
+            if match then
+                local number = tonumber(match)
+                if number and number >= 1 and number <= 14 then
+                    firetouchinterest(v.TouchTrigger.TouchInterest)
+                end
+            end
+        end
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gets all the fuses from touch interest.'
+})
+
+local MyButton = Box1:AddButton({
+    Text = 'Get Batteries',
+    Func = function()
+        for i,v in pairs(game.Workspace:GetChildren()) do
+            if v.Name == "Battery" then
+                firetouchinterest(v.TouchTrigger.TouchInterest)
+            end
+        end
+    end,
+    DoubleClick = false,
+    Tooltip = 'Gets all the batteries from touch interest.'
 })
