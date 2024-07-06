@@ -15,7 +15,7 @@ local Window = Library:CreateWindow({
 local Tabs = {
     Chapter1 = Window:AddTab('Chapter 1'),
     Chapter2 = Window:AddTab('Chapter 2'),
-    TouchInterest = Window:AddTab('Touch Interest (WIP)')
+    TouchInterest = Window:AddTab('Touch Interest (WIP)'),
     Settings = Window:AddTab('UI Settings'),
     Credits = Window:AddTab('Credits'),
 }
@@ -638,8 +638,8 @@ local MyButton = RightGroupBox7:AddButton({
 })
 
 
--- update broke code i think, remove the --[[ thing for it to work
---[[
+-- new update, go to discord if it doesnt work
+
 local Box1 = Tabs.TouchInterest:AddRightGroupbox('Chapter 1')
 
 local MyButton = Box1:AddButton({
@@ -703,4 +703,3 @@ local MyButton = Box1:AddButton({
     DoubleClick = false,
     Tooltip = 'Gets all the batteries from touch interest.'
 })
-]]
