@@ -5,7 +5,7 @@ local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
 
 local Window = Library:CreateWindow({
-    Title = 'Rainbow Friends Hub V2.1',
+    Title = 'Rainbow Friends Hub V2.2',
     Center = true,
     AutoShow = true,
     TabPadding = 8,
@@ -650,7 +650,7 @@ local MyButton = Box1:AddButton({
             if match then
                 local number = tonumber(match)
                 if number and number >= 1 and number <= 24 then
-                    firetouchinterest(v, v.TouchTrigger.TouchInterest)
+                    firetouchinterest(v, v.TouchTrigger.TouchInterest, 1)
                     wait(0.5)
                 end
             end
@@ -665,7 +665,7 @@ local MyButton = Box1:AddButton({
     Func = function()
         for i, v in pairs(game.Workspace:GetChildren()) do
             if v.Name == "FoodGreen" or v.Name == "FoodOrange" or v.Name == "FoodPink" then
-                firetouchinterest(v, v.TouchTrigger.TouchInterest)
+                firetouchinterest(v, v.TouchTrigger.TouchInterest, 1)
                 wait(0.5)
             end
         end
@@ -682,7 +682,7 @@ local MyButton = Box1:AddButton({
             if match then
                 local number = tonumber(match)
                 if number and number >= 1 and number <= 14 then
-                    firetouchinterest(v, v.TouchTrigger.TouchInterest)
+                    firetouchinterest(v, v.TouchTrigger.TouchInterest, 1)
                     wait(0.5)
                 end
             end
@@ -697,7 +697,7 @@ local MyButton = Box1:AddButton({
     Func = function()
         for i,v in pairs(game.Workspace:GetChildren()) do
             if v.Name == "Battery" then
-                firetouchinterest(v, v.TouchTrigger.TouchInterest)
+                firetouchinterest(v, v.TouchTrigger.TouchInterest, 1)
                 wait(0.5)
             end
         end
