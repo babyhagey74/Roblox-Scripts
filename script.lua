@@ -339,7 +339,7 @@ local MyButton = RightGroupBox1:AddButton({
     Func = function()
         local hl = Instance.new("Highlight")
         for i,v in pairs(game.Workspace:GetChildren()) do
-            if v.Name == "Lightbulb" then
+            if v.Name == "LightBulb" then
                 hl:Clone().Parent = v
             end
         end
