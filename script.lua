@@ -638,8 +638,8 @@ local MyButton = RightGroupBox7:AddButton({
 })
 
 
--- update not finished, any issues go into our discord server in the credits tab, chapter 2 coming soon!
-
+-- update broke code i think, remove the --[[ thing for it to work
+--[[
 local Box1 = Tabs.TouchInterest:AddRightGroupbox('Chapter 1')
 
 local MyButton = Box1:AddButton({
@@ -703,3 +703,4 @@ local MyButton = Box1:AddButton({
     DoubleClick = false,
     Tooltip = 'Gets all the batteries from touch interest.'
 })
+]]
