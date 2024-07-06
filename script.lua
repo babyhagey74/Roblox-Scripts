@@ -650,7 +650,7 @@ local MyButton = Box1:AddButton({
             if match then
                 local number = tonumber(match)
                 if number and number >= 1 and number <= 24 then
-                    firetouchinterest(v.TouchTrigger.TouchInterest)
+                    firetouchinterest(v, v.TouchTrigger.TouchInterest)
                     wait(0.5)
                 end
             end
@@ -665,7 +665,7 @@ local MyButton = Box1:AddButton({
     Func = function()
         for i, v in pairs(game.Workspace:GetChildren()) do
             if v.Name == "FoodGreen" or v.Name == "FoodOrange" or v.Name == "FoodPink" then
-                firetouchinterest(v.TouchTrigger.TouchInterest)
+                firetouchinterest(v, v.TouchTrigger.TouchInterest)
                 wait(0.5)
             end
         end
@@ -682,7 +682,8 @@ local MyButton = Box1:AddButton({
             if match then
                 local number = tonumber(match)
                 if number and number >= 1 and number <= 14 then
-                    firetouchinterest(v.TouchTrigger.TouchInterest)
+                    firetouchinterest(v, v.TouchTrigger.TouchInterest)
+                    wait(0.5)
                 end
             end
         end
@@ -696,7 +697,8 @@ local MyButton = Box1:AddButton({
     Func = function()
         for i,v in pairs(game.Workspace:GetChildren()) do
             if v.Name == "Battery" then
-                firetouchinterest(v.TouchTrigger.TouchInterest)
+                firetouchinterest(v, v.TouchTrigger.TouchInterest)
+                wait(0.5)
             end
         end
     end,
